@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+##this is for the replicaset
+ name: deployment
+ labels: 
+  name: replica-set
+  project: roboshop
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: deployment-dev
+  ##pod configuration
+  template:
+    metadata:
+      name: pod-replica-set
+      labels:
+        tier: deployment-dev
+    spec:
+      containers:
+       - name: nginx
+         image: nginx
