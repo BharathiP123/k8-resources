@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+ name: nginx-service-lb
+spec:
+ type: LoadBalancer
+ selector:
+   project: roboshop
+   component: frontend
+   environment: dev
+   purpose: lb-creation
+ ports:
+   - protocol: TCP
+     port: 80
+     targetPort: 80 ##This is container port
+     nodePort: 30007
