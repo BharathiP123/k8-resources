@@ -3,5 +3,5 @@ Kind: Pod
 metadata: 
  name: pod-config
 data: 
-  - name: course
-    value: K8S
+   name: course
+   value: K8S
