@@ -9,5 +9,4 @@ spec:
      envFrom:
       - name: nginx-env
         configMapKeyRef:
-          name: configMap
-          value: pod-config
+          name: pod-config
