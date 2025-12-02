@@ -14,6 +14,7 @@ spec:
   ##pod configuration
   template:
     metadata:
+      name: pod-replica-set
       labels:
         tier: frontend
     spec:
