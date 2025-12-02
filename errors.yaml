@@ -3,6 +3,6 @@ kind: Pod
 metadata:
  name: image errors
 spec: 
-containers: 
-  - name: nginx
-    image: ngin
+  containers: 
+    - name: nginx
+      image: ngin
