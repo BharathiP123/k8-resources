@@ -10,12 +10,12 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      component: frontend
+      tier: frontend
   ##pod configuration
   template:
     metadata:
       labels:
-        component: frontend
+        tier: frontend
     spec:
       containers:
        - name: nginx
