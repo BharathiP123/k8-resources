@@ -6,8 +6,9 @@ spec:
   containers:
    - name: nginx-configmap
      image: nginx
-     env: 
-      ValueFrom:
-        configMapKeyRef:
-          name: configMap
-          value: pod-config
+     env:
+      - name: nginx-env
+        valueFrom:
+          configMapKeyRef:
+            name: configMap
+            value: pod-config
