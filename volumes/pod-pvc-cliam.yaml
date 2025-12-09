@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   name: nginx
   labels: 
-   purpose: ebs-static-poc
+   project: roboshop
 spec:
   containers:
   - name: nginx
@@ -31,16 +31,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
- name: ebs-static
- label: 
-  purpose: ebs-static-poc
+ name: nginx-service
 spec:
  type: LoadBalancer
  selector:
-  purpose: ebs-static-poc
+   project: roboshop
+
  ports:
    - protocol: TCP
      port: 80
-     targetPort: 8000 ##This is container port
+     targetPort: 80 ##This is container port
 
       
