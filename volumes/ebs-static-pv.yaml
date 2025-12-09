@@ -6,6 +6,7 @@ metadata:
 spec:
   accessModes:
   - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain ##retain means does not delete the data , delete when pod is deleted the delete the data , recyle means keep the data after pd delet
   capacity:
     storage: 15Gi
   csi:
