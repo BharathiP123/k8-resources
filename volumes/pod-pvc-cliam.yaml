@@ -28,12 +28,12 @@ spec:
     topology.ebs.csi.aws.com/zone: us-east-1b
 
 ---
-appVersion: v1 
+appVersion: v1
 kind: Service
 metadata:
  name: ebs-static
  label: 
-  name: ebs-static-claim
+  purpose: ebs-static-poc
 spec:
  type: LoadBalancer
  selector:
