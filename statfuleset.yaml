@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: nginx-stateful
+spec:
+  selector:
+    matchLabels:
+      project: roboshop   # has to match .spec.template.metadata.labels
+  serviceName: "headless-s"
+  replicas: 3 # by default is 1
+  minReadySeconds: 10 # by default is 0
+  template:
+    metadata:
+      labels:
+        project: roboshop  # has to match .spec.selector.matchLabels
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+          name: web
+        volumeMounts:
+        - name: www
+          mountPath: /usr/share/nginx/html
+  ##pvc
+  volumeClaimTemplates:
+  - metadata:
+      name: www
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: "ebs-sc"
+      resources:
+        requests:
+          storage: 10Gi
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ns
+spec:
+ selector:
+   project: roboshop  
+ ports:
+   - protocol: TCP
+     port: 80
+     targetPort: 80 ##This is container port
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+ name: headless-s
+spec:
+ clusterIP: None
+ selector:
+   project: roboshop  
+ ports:
+   - protocol: TCP
+     port: 80
+     targetPort: 80 ##This is container port
