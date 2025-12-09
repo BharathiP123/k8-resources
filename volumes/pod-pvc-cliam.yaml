@@ -9,7 +9,9 @@ spec:
     volumeMounts:
     - name: persistent-static-storage
       mountPath: /usr/share/html
+      readOnly: true
   volumes:
   - name: persistent-static-storage
     persistentVolumeClaim:
       claimName: ebs-claim
+      readOnly: true
