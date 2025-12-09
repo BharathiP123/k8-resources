@@ -10,6 +10,12 @@ spec:
     - name: persistent-static-storage
       mountPath: /usr/share/html
       readOnly: true
+  - name: alamlinux
+    image: alamlinux:9
+    volumeMounts:
+    - name: persistent-static-storage
+      mountPath: /var/log
+      readOnly: true
   volumes:
   - name: persistent-static-storage
     persistentVolumeClaim:
