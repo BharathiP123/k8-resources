@@ -26,8 +26,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
- ##Headless sevice is doesnt have the cluster ip
- name: headless-service
+  name: ns
 spec:
  selector:
    project: roboshop  
@@ -41,7 +40,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
- name: nginx-service
+ name: headless-s
 spec:
  clusterIP: None
  selector:
