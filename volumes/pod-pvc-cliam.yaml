@@ -9,7 +9,8 @@ spec:
     volumeMounts:
     - name: persistent-static-storage
       mountPath: /usr/share/html
-      
+    nodeSelector:
+      topology.ebs.csi.aws.com/zone: us-east-1b  
   - name: alamlinux
     image: alamlinux:9
     command: ["sleep", "2000"]
