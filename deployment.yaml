@@ -16,8 +16,37 @@ spec:
     metadata:
       name: pod-replica-set
       labels:
-        tier: deployment-dev
+        project: roboshop
     spec:
       containers:
        - name: nginx
          image: nginx:latest
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+ ##Headless sevice is doesnt have the cluster ip
+ name: headless-service
+spec:
+ selector:
+   project: roboshop  
+ ports:
+   - protocol: TCP
+     port: 80
+     targetPort: 80 ##This is container port
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+ name: nginx-service
+spec:
+ clusterIp: None
+ selector:
+   project: roboshop  
+ ports:
+   - protocol: TCP
+     port: 80
+     targetPort: 80 ##This is container port
