@@ -4,6 +4,7 @@ metadata:
   name: efs-dynamic-storage
 provisioner: efs.csi.aws.com
 parameters:
-  provisioningMode: roboshop-efs
+  provisioningMode: efs-ap
   fileSystemId: fs-06771994627dbbba9
   directoryPerms: "700"
+  basePath: "/roboshop"
