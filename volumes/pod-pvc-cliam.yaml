@@ -12,6 +12,7 @@ spec:
       readOnly: true
   - name: alamlinux
     image: alamlinux:9
+    command: ["sleep", "2000"]
     volumeMounts:
     - name: persistent-static-storage
       mountPath: /var/log
