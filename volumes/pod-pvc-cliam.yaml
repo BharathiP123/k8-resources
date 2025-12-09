@@ -9,16 +9,16 @@ spec:
     volumeMounts:
     - name: persistent-static-storage
       mountPath: /usr/share/html
-      readOnly: true
+      
   - name: alamlinux
     image: alamlinux:9
     command: ["sleep", "2000"]
     volumeMounts:
     - name: persistent-static-storage
       mountPath: /var/log
-      readOnly: true
+      
   volumes:
   - name: persistent-static-storage
     persistentVolumeClaim:
       claimName: ebs-claim
-      readOnly: true
+      
