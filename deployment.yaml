@@ -10,7 +10,7 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      tier: deployment-dev
+      project: roboshop
   ##pod configuration
   template:
     metadata:
