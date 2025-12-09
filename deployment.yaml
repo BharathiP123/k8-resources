@@ -43,7 +43,7 @@ kind: Service
 metadata:
  name: nginx-service
 spec:
- clusterIp: None
+ clusterIP: None
  selector:
    project: roboshop  
  ports:
