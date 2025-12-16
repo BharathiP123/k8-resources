@@ -28,6 +28,7 @@ kind: Service
 metadata:
   name: ns
 spec:
+ type: LoadBalancer
  selector:
    project: roboshop  
  ports:
